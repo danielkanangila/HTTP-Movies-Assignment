@@ -22,7 +22,7 @@ $color-darkred: #b71c1c;
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 65px 0 0;
   font-family: sans-serif;
   background-color: #f2f2f2;
 }
@@ -156,21 +156,6 @@ a {
   text-align: center;
 }
 
-.navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 60px;
-  box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.25);
-  background-color: #512da8;
-  color: #ffffff;
-  h1 {
-    font-size: 1.3rem;
-    padding: 15px 15px;
-  }
-}
-
 .container {
   padding: 0 1.5rem;
     @media (min-width: 750px) {
@@ -240,11 +225,17 @@ footer {
 
 .form {
   width: 100%;
-  max-width: 450px;
   margin: 0 auto 20px;
   box-shadow: 1px 1px 10px rgba(0,0,0,0.25);
   background-color: #fff;
-  padding: 16px;
+  padding: 20px 15px 40px;
+  
+  @media (min-width: 850px) {
+    padding: 20px 20% 40px;
+  }
+  @media (min-width: 1024px) {
+    padding: 20px 30% 40px;
+  }
 }
 
 .form-control, textarea {

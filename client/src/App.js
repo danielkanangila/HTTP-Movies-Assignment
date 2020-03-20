@@ -4,7 +4,7 @@ import SavedList from "./components/Movies/SavedList";
 import MovieList from "./components/Movies/MovieList";
 import Movie from "./components/Movies/Movie";
 import axios from 'axios';
-import NavBar from "./components/NavBar";
+import NavBar from "./components/Navbar/NavBar";
 import Footer from "./components/Footer";
 import Form from "./components/Movies/Form";
 import DeleteMovie from "./components/Movies/DeleteMovie";
