@@ -3,8 +3,8 @@ import axios from "axios";
 
 const API_URL = 'http://localhost:5000/api/movies'
 
-const Form = ({defaultData, location, history}) => {
-    const data = defaultData || location.state
+const Form = ({location, history}) => {
+    const data = location?.state || {title: "", director: "", metascore: "", stars: []}
     const [state, setState] = useState({
         ...data
     });
@@ -25,19 +25,23 @@ const Form = ({defaultData, location, history}) => {
     }
     const handleSubmit = e => {
         e.preventDefault();
-        if (state.id) {
-            axios.put(`${API_URL}/${state.id}`, state)
-            .then(res => history.push(`/movies/${res.data.id}`))
-            .catch(err => setError(err.response.data.error))
-        }
+        const method = state.id ? 'put' : 'post';
+        const url = state.id ? `${API_URL}/${state.id}` : API_URL;
+        const successRedirectionPath = state.id ? `/movies/${state.id}` : '/';
+        axios[method](url, state)
+            .then(res => history.push(successRedirectionPath))
+            .catch(err => setError(err.response));
+        setState(data)
     }
     const saveStar = (newStar, index) => {
-        const {stars} = state;
-        stars[index] = newStar;
-        setState({
-            ...state,
-            stars
-        })
+        if (newStar) {
+            const {stars} = state;
+            stars[index] = newStar;
+            setState({
+                ...state,
+                stars
+            })
+        }
     }
     return(
         <form className="form" onSubmit={handleSubmit}>
@@ -47,10 +51,10 @@ const Form = ({defaultData, location, history}) => {
             {error && <div className="error">{error}</div>}
             <input onChange={handleChange} className="form-control" type="text" name="title" placeholder="Title" value={state.title} />
             <input onChange={handleChange} className="form-control" type="text" name="director" placeholder="Director" value={state.director} />
-            <input onChange={handleChange} className="form-control" type="text" name="metascore" placeholder="Score" value={state.metascore} />
+            <input onChange={handleChange} className="form-control" type="text" name="metascore" placeholder="Metascore" value={state.metascore} />
             <div className="stars">
                 <div className="header">
-                    <p>Stars</p>
+                    <h4>Actors</h4>
                     <button onClick={e => {
                         e.preventDefault(); setState({...state, stars: [...state.stars, " "]})
                     }} className="btn  btn-primary small">
