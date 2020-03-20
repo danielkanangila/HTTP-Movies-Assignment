@@ -16,7 +16,7 @@ const App = () => {
   };
 
   return (
-    <div className="app">
+    <div id="app">
       <NavBar />
       <div className="container">
         <SavedList list={savedList} />

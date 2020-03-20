@@ -5,7 +5,7 @@ import SideNav from "./SideNav";
 
 const NavBar = () => {
     const openSidenav = () => {
-        document.getElementById("mySidenav").style.width = "100%";
+        document.getElementById("mySidenav").style.width = "350px";
     }
     return(
         <React.Fragment>
