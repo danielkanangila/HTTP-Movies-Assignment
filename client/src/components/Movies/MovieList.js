@@ -7,9 +7,10 @@ const MovieList = ({ movies }) => {
     <div className="movie-list">
       {
         movies.map(movie => (
-          <Link key={movie.id} to={`/movies/${movie.id}`}>
+          <div className="movie-item" key={movie.id} >
+            <Link className="movie-link" to={`/movies/${movie.id}`} ></Link>
             <MovieCard movie={movie} />
-          </Link>
+          </div>
         ))
       }
     </div>

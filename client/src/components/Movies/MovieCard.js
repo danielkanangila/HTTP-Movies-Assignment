@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MovieCard = props => {
-  const { title, director, metascore, stars } = props.movie;
+  const { title, director, metascore, stars, id } = props.movie;
   return (
     <div className="movie-card">
       <h2>{title}</h2>
@@ -18,6 +19,16 @@ const MovieCard = props => {
           {star}
         </div>
       ))}
+      <div className="card-action mt">
+          <Link id="link" to={{pathname: `/update-movie/${id}`, state: {...props.movie}}} className="btn btn-primary small">
+            <i className="fa fa-edit icon"></i>
+            Update
+          </Link>
+          <Link to={`/delete-movie/${id}`} className="btn btn-danger small">
+            <i className="fa fa-trash icon"></i>
+            Delete
+          </Link>
+        </div>
     </div>
   );
 };

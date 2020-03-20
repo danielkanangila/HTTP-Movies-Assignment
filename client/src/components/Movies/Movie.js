@@ -28,7 +28,7 @@ const Movie = ({ addToSavedList }) => {
 
   return (
     <div className='save-wrapper'>
-      <MovieCard movie={movie} />
+      <MovieCard isSingle={true} movie={movie} />
 
       <div className='btn small save-button' onClick={saveMovie}>
         <i className="fa fa-save icon"></i>
