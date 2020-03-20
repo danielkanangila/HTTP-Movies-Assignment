@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "name": "http-movies",
+    "builds": [
+        {"src": "/api/api.js", "use": "@now/node"}
+    ],
+    "routes": [
+        {"src": "/api(.*)", "dest": "/api/api.js"}
+    ]
+}
