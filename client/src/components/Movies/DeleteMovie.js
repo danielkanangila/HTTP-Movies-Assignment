@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useRouteMatch, useHistory } from "react-router-dom";
 import axios from "axios";
+import { getApiUrl } from '../../utils';
 
-const API_URL = 'http://localhost:5000/api/movies'
+const API_URL = getApiUrl();
 
 const DeleteMovie = () => {
     const match = useRouteMatch();

@@ -2,13 +2,14 @@ import React, {useEffect, useState} from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard";
+import { getApiUrl } from '../../utils';
 
 const MovieList = () => {
   const [movies, setMovieList] = useState([]);
 
   const getMovieList = () => {
     axios
-      .get("http://localhost:5000/api/movies")
+      .get(getApiUrl())
       .then(res => setMovieList(res.data))
       .catch(err => console.log(err.response));
   };

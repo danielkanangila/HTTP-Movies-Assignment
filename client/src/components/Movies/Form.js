@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from "axios";
+import { getApiUrl } from '../../utils';
 
-const API_URL = 'http://localhost:5000/api/movies'
+const API_URL = getApiUrl();
 
 const Form = ({location, history}) => {
     const data = location?.state || {title: "", director: "", metascore: "", stars: []}

@@ -9,4 +9,4 @@ app.use(bodyParser.json());
 app.use(CORS());
 app.use("/http-movies", apiRouter);
 
-module.exports = apiRouter;
+module.exports = app;

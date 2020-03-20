@@ -1,0 +1,9 @@
+{
+    "version": 2,
+    "builds": [
+        {"src": "/lambdas/api.js", "use": "@now/node"}
+    ],
+    "routes": [
+        {"src": "/http-movies/api/(.*)", "dest": "/lambdas/api.js"}
+    ]
+}

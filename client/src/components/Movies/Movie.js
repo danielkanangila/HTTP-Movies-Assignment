@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouteMatch } from 'react-router-dom';
 import MovieCard from './MovieCard';
+import { getApiUrl } from '../../utils';
+
+const API_URL = getApiUrl();
 
 const Movie = ({ addToSavedList }) => {
   const [movie, setMovie] = useState(null);
@@ -9,7 +12,7 @@ const Movie = ({ addToSavedList }) => {
 
   const fetchMovie = id => {
     axios
-      .get(`http://localhost:5000/api/movies/${id}`)
+      .get(`${API_URL}/${id}`)
       .then(res => setMovie(res.data))
       .catch(err => console.log(err.response));
   };
