@@ -11,13 +11,15 @@ const NavBar = () => {
         <React.Fragment>
             <SideNav />
             <div onClick={openSidenav} className="navbar container">
-                <h1 className="logo">
-                    <Link to="/">
-                        HTTP-Movies
-                    </Link>
-                </h1>
                 <div className="menu-icon">
                     <MenuIcon />
+                </div>
+                <div className="items">
+                    <h1 className="logo">
+                        <Link to="/">
+                            HTTP-Movies
+                        </Link>
+                    </h1>
                 </div>
             </div>
         </React.Fragment>

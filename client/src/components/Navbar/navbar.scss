@@ -16,11 +16,12 @@
       font-size: 1.3rem;
       padding: 15px 0px;
     }
-    .links {
+    .items {
       display: flex;
+      justify-content: center;
+      width: 95%;
     }
     .menu-icon {
-      transform: rotateY(180deg);
       cursor: pointer;
     }
 }
