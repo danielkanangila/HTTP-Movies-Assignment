@@ -7,6 +7,7 @@ import axios from 'axios';
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Form from "./components/Movies/Form";
+import DeleteMovie from "./components/Movies/DeleteMovie";
 
 const App = () => {
   const [savedList, setSavedList] = useState([]);
@@ -35,6 +36,7 @@ const App = () => {
         <Route exact path="/" render={() => <MovieList movies={movieList} /> }/>
         <Route path="/movies/:id" render={() => <Movie addToSavedList={addToSavedList} />} />
         <Route path="/update-movie/:id" render={props => <Form  {...props}/>} />
+        <Route path="/delete-movie/:id" component={DeleteMovie} />
       </div>
       <Footer />
     </div>
